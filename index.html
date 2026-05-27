@@ -6,7 +6,7 @@
 <title>Palisade Protective Security Advisory Ltd</title>
 <meta name="copyright" content="© 2026 Palisade Protective Security Advisory Ltd. All rights reserved.">
 <meta name="author" content="Palisade Protective Security Advisory Ltd">
-<meta name="description" content="Palisade Protective Security Advisory Ltd — DV-cleared physical penetration testing and protective security advisory. Specialists in countering hostile state activity, foreign intelligence service threats, and CNI targeting. Hampshire, UK-wide.">
+<meta name="description" content="Palisade Protective Security Advisory Ltd — NPSA-endorsed protective security specialist. ASIS CPP and MSyI accredited, DV-cleared. Independent advisory delivered within the NPSA Protective Security Risk Management framework. Russian-language hostile state advisory available. Hampshire, UK-wide.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
@@ -62,14 +62,16 @@ nav {
   right: 0;
   z-index: 100;
   padding: 0 5vw;
-  height: 72px;
+  height: 88px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(180deg, rgba(10,22,40,0.98) 0%, rgba(10,22,40,0) 100%);
   backdrop-filter: blur(2px);
-  transition: background 0.3s;
+  transition: background 0.3s, height 0.3s;
 }
+
+nav.scrolled { height: 76px; }
 
 nav.scrolled {
   background: rgba(10,22,40,0.97);
@@ -79,15 +81,19 @@ nav.scrolled {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 18px;
   text-decoration: none;
 }
 
 .nav-shield {
-  width: 36px;
-  height: 36px;
+  width: 56px;
+  height: 56px;
   flex-shrink: 0;
+  object-fit: contain;
+  transition: width 0.3s, height 0.3s;
 }
+
+nav.scrolled .nav-shield { width: 46px; height: 46px; }
 
 .nav-logo-text {
   display: flex;
@@ -96,9 +102,9 @@ nav.scrolled {
 
 .nav-name {
   font-family: var(--display);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--white);
   line-height: 1;
@@ -106,13 +112,13 @@ nav.scrolled {
 
 .nav-sub {
   font-family: var(--display);
-  font-size: 0.6rem;
-  font-weight: 300;
-  letter-spacing: 0.22em;
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--gold2);
   line-height: 1;
-  margin-top: 3px;
+  margin-top: 5px;
 }
 
 .nav-links {
@@ -230,17 +236,27 @@ nav.scrolled {
   position: relative;
   z-index: 2;
   padding: 0 5vw;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   width: 100%;
-  padding-top: 72px;
+  padding-top: 96px;
+}
+
+.hero-mark {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 36px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 32px rgba(184,147,74,0.18));
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.15s forwards;
 }
 
 .hero-eyebrow {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   opacity: 0;
   animation: fadeUp 0.8s ease 0.3s forwards;
 }
@@ -262,11 +278,12 @@ nav.scrolled {
 
 .hero-title {
   font-family: var(--serif);
-  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-size: clamp(2.6rem, 6vw, 5.6rem);
   font-weight: 300;
-  line-height: 0.95;
+  line-height: 1.02;
   letter-spacing: -0.01em;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
+  max-width: 880px;
   opacity: 0;
   animation: fadeUp 0.9s ease 0.5s forwards;
 }
@@ -284,12 +301,12 @@ nav.scrolled {
 
 .hero-desc {
   font-family: var(--body);
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-size: clamp(1rem, 1.35vw, 1.1rem);
   font-weight: 300;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.65);
-  max-width: 540px;
-  margin-bottom: 48px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.7);
+  max-width: 620px;
+  margin-bottom: 44px;
   opacity: 0;
   animation: fadeUp 0.9s ease 0.7s forwards;
 }
@@ -356,12 +373,16 @@ nav.scrolled {
 .hero-credentials {
   position: absolute;
   right: 5vw;
-  bottom: 60px;
+  bottom: 72px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 11px;
   opacity: 0;
   animation: fadeLeft 1s ease 1.1s forwards;
+}
+
+@media (max-width: 1180px) {
+  .hero-credentials { display: none; }
 }
 
 .cred-item {
@@ -421,10 +442,108 @@ nav.scrolled {
   opacity: 0.3;
 }
 
+/* ── ACCREDITATIONS STRIP ── */
+.accreditations {
+  background: var(--navy2);
+  padding: 88px 5vw 96px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(184,147,74,0.12);
+  border-bottom: 1px solid rgba(184,147,74,0.12);
+}
+
+.accreditations-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.accreditations-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.accreditations-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.2;
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+
+.accreditations-title em { font-style: italic; color: var(--gold2); }
+
+.accreditations-sub {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.accred-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: rgba(184,147,74,0.15);
+  border: 1px solid rgba(184,147,74,0.15);
+}
+
+.accred-cell {
+  background: var(--navy);
+  padding: 36px 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  transition: background 0.3s;
+}
+
+.accred-cell:hover { background: var(--navy3); }
+
+.accred-mark {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold2);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.accred-name {
+  font-family: var(--display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.accred-desc {
+  font-family: var(--body);
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .accred-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .accred-grid { grid-template-columns: 1fr; }
+}
+
 /* ── SERVICES ── */
 .services {
   background: var(--cream);
-  padding: 120px 5vw;
+  padding: 110px 5vw;
   position: relative;
   overflow: hidden;
 }
@@ -479,9 +598,9 @@ nav.scrolled {
   font-size: 1rem;
   font-weight: 300;
   color: var(--text3);
-  max-width: 560px;
-  line-height: 1.7;
-  margin-bottom: 72px;
+  max-width: 640px;
+  line-height: 1.75;
+  margin-bottom: 64px;
 }
 
 .services-grid {
@@ -577,7 +696,7 @@ nav.scrolled {
 /* ── ABOUT ── */
 .about {
   background: var(--navy2);
-  padding: 120px 5vw;
+  padding: 110px 5vw;
   position: relative;
   overflow: hidden;
 }
@@ -687,7 +806,7 @@ nav.scrolled {
 /* ── MARTYN'S LAW ── */
 .martyns {
   background: var(--cream);
-  padding: 100px 5vw;
+  padding: 110px 5vw;
   position: relative;
   overflow: hidden;
 }
@@ -816,7 +935,7 @@ nav.scrolled {
 /* ── PROCESS ── */
 .process {
   background: var(--navy);
-  padding: 100px 5vw;
+  padding: 110px 5vw;
 }
 
 .process-inner {
@@ -996,7 +1115,7 @@ nav.scrolled {
 /* ── CONTACT ── */
 .contact {
   background: var(--navy2);
-  padding: 100px 5vw;
+  padding: 110px 5vw;
 }
 
 .contact-inner {
@@ -1287,7 +1406,7 @@ footer {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 72px;
+    top: 88px;
     left: 0;
     right: 0;
     background: rgba(10,22,40,0.98);
@@ -1296,6 +1415,10 @@ footer {
     border-top: 1px solid rgba(184,147,74,0.15);
   }
   .nav-links.open a { font-size: 1rem; }
+  .nav-shield { width: 46px; height: 46px; }
+  .nav-name { font-size: 0.95rem; }
+  .nav-sub { font-size: 0.55rem; }
+  .hero-mark { width: 100px; height: 100px; margin-bottom: 28px; }
   .services-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .martyns-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -1319,13 +1442,14 @@ footer {
 <!-- NAVIGATION -->
 <nav id="mainNav">
   <a href="#" class="nav-logo">
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAIAAACR5s1WAAAHh0lEQVR42p1YS4xcRxW9t+q9/s14ZjzxdzIT2ziOjG3sTIhJHEfGiqwo4SvxkQhIxAs+SoSEkBDszAJYICGEhGCHkGCHkFAEikX4LMICCLH5xsZW7HFGCU48GXs8093vvaq697DoHne/7tc9HXrR6ldd79b9nXPvLTbjc0RgYhBo/cNEIGairkUmAhETEXXtXF8f/XNnf+dF0/qFvCB0vrlvredIdO0ZXYOcJSb3mDsC79DE/PaBMgteMTlrud8q9Jky4PDhGwdZxHeUKBSLkY3uNYBzWvBQ5duewGCJ6DcNwzzSmz3revXrkT/UjJBKXHQmb5SPXOAx9AWLN1SCu3XGRvEYDRxFVpgCz2NICnAfaAv38zuAElo50QPgnE7cFdJuD/P/7Y7+U0xBEFGsM/cHe2Dmoyj+A/TgbiUwPBAbms3DWIRG4Qm8g2h2oGXau601BQph1GiZgczTa0yBxND0rcP8alIMToyUrJZLE7351w/yrvcNMzExkQG9d9/01z91+EufefRWw1174xaIDTMbArABV+a5gs34bK4WFsalq1KqUzJkmHduqf3w2QdqY7XD9x+MIz75xZ/9+9KbYCaBqcS92cDDYGwKKaxrAxMRMzERQFAcetfkMx/cy4YTJ4mTRhrqqU+dNl0gom89+/7jD8wiCAAmZuYOClCIIKzXjsLcbD+CiUQhSrWSZeanH5s9tGuTKo7smSRCKTbjtaox5sT9u0j1kUPbv/m5Y2x4vBKJQIJuFJTunBjgfyaC0kTFfvbEdmvN4mLj4YPTldjM37v544/OjVXi/y6npU1Tu2c2n3rwnsP7to6X7dsrzZ8//8oTx+aeOnnPv67cTB2YeXDrw0SIijXo5AyL6Lap0v6Z8oU3mgf3TVRjrpWj+b3j195q/O7c9Rcv3ASd+9DxPZ//2IOnju5+68bNZr1xfP5uUn3fvVOz28eWL9+KKtFgtIKILJcnenXM9zhQnqqZuel4Zrpy/MBUrRIvLqW/+OPiT19YuBnGPvDkqdNPf/r3f778vR+fvbCwdNem8sx09aH905vHbD3xL11evnErM5EBhgWlKxyDnKU0OWbevTMuxdHi29nZl28899LSmzQj0MdPzM/N3n382EN79sz++g9/XWxO//KFc5deW6qVo22TJYj86eLNpZV1JbiISJmIKCruWPO5CWBhKf37tdtXl7JocmbHoWOTW3YsnP9tkmQhSOb87ZXbNi7tP3py7daBv7zy8os/OX941/hjR7ZiSBPEnUOjYkbrQrixfH0lPPcPjidmymPLU9t2xuWqSxOoKgDARrGNIqhmSTOuju/cvfeGrC3Ijh/85kpEzsRWgYHzAQ+h7bzj1FYmZu7bvGOOjfUuVQ3oTAmwxlhriQlEquqylI3duee+mQOPUGkTILkWBIXtHTYqkQBbC0JwKQBVlSCq0i4OgKqoKhQSvAQPVQAuTdhGUVzpLWM9tAEiULRx2WSCqnhvoxIRqQQJTnwEqIgE0SxzznlAg3eqIhJawlWCQjoO4CJ49ibm4KoPFRUv3kEVKhp88BkAFRUR5533HoB4JyoqHlCRAFWoFnbuPbkfFZzd3+xDxTs2FhCVICFrYVdURUKaOuc9QYNPVVVCgEK8k+AkuPZIO7SsRwXjbm+rx6SiIRVjAEAleMdsAIQQssw1m80szUAQ7xQCCa3QhLShPsvVsAEDbDQ8Wu1+FqresS0RoK3MFA/VEIJzWZqmaZYBCMG1/4KKBJ81IIGM7TSk/We1c4IHjJzIaQNxKqHlCQmOmYkQgngfkjQNIRBUfKYqUCFAJYRkrZAVijwxaGbvafzFE7SVHhq8tMPhsyxrNJpZ1krMDEQq0gpNSFaJTTE08l6JBo1m+esSBhTiiFhVWAIbJmiLs5MkSbOUAAm+BSViG5JVDRmZaEC7y8To80RPh8e5bxCIGS5pIQXilQlEPgTvXZIkaZq2KKTFXRDv68ttN/CAMOc8MfJ1DyBExCipBhImaPDeOZdlmXOeSFU8AIDUJ8SGeLTxAT1kBSq+IepcPAAQBqBCRKLqnEvT1DlHIJVAxAjp4G4OhVRhejmEh/THIGKEjMS1PSPifWg2m947AARW15B0Le+DvsmsD4lRISAHjysgYvWJMRGxEREffJplaZoxGw2pJKsbiuhfi4pf4Q1u5eDqBCJmCeIyp6qEoOnKRldexTxhin2G7iGc++FFIEBX1xJVTdJk8fXrBB1h+GTuvkC6s2g3zREIwCC7VZWI12dfZiKFAjDGqGKsVo6jeGVpmaLIlmJoS06b7btlAoCCoGRsFFlVvSPfgqpgZtPO0Ha9WScJNjxWrVhrOmMMUblUqpTLQYSZvJd0rT6za7Zaq9bX1tjaOxpw/g44jqJqpTI5NQGFW6tzHLf+rVYq9syZM+f/9k/vnI0jqa+ePv1UKY5fv7pgy2VmRtr87ne+kTn/6oULtlxhZmk0Hj529Ktf/sLzvzoblcqaJh/56JPzR94zf+RguRS/duWqLZUIpCJf+8ozFy+92qw3bRSJ99u2bvnR97+d1htPPH5y+q7pyxf/E5fL0kw++YkP/w+a/eY8gUYdtAAAAABJRU5ErkJggg==" class="nav-shield" alt="Palisade Protective Security Advisory Ltd" style="width:44px;height:44px;object-fit:contain;">
+    <img src="logo.png" class="nav-shield" alt="Palisade Protective Security Advisory Ltd">
     <div class="nav-logo-text">
       <span class="nav-name">Palisade</span>
-      <span class="nav-sub">Protective Security Advisory</span>
+      <span class="nav-sub">Protective Security Advisory Ltd</span>
     </div>
   </a>
   <ul class="nav-links" id="navLinks">
+    <li><a href="#accreditations">Accreditation</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#martyns">Martyn's Law</a></li>
@@ -1352,16 +1476,17 @@ footer {
     </svg>
   </div>
   <div class="hero-content">
+    <img src="logo.png" class="hero-mark" alt="Palisade Protective Security Advisory Ltd">
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-line"></div>
-      <span class="hero-eyebrow-text">Protective Security Advisory — Hampshire</span>
+      <span class="hero-eyebrow-text">NPSA-Endorsed Protective Security Specialist</span>
     </div>
     <h1 class="hero-title">
-      <strong>When the Threat</strong><br>
-      <em>is Real,</em><br>
-      <strong>Standards Matter</strong>
+      <strong>Independent Protective</strong><br>
+      <em>Security Advisory</em><br>
+      <strong>For Complex Threat</strong> <em>Environments.</em>
     </h1>
-    <p class="hero-desc">Physical penetration testing, Martyn's Law advisory, and protective security advisory — delivered by DV-cleared practitioners who understand the threat as well as the defence. In an era of escalating hostile state activity, organised criminal targeting of UK infrastructure and institutions, and growing risk to high-value individuals, robust physical security is no longer optional.</p>
+    <p class="hero-desc">An independent advisory practice delivered within the NPSA Protective Security Risk Management framework and aligned to the four pillars of converged protective security — physical, personnel, technical, and cyber. ASIS CPP and Security Institute (MSyI) credentialed; Developed Vetting (DV) cleared. A level of specialist assurance generic security consultancy cannot replicate.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">
         Commission an Assessment
@@ -1373,10 +1498,11 @@ footer {
     </div>
   </div>
   <div class="hero-credentials">
-    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">DV Cleared Practitioners</span></div>
-    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">Special Operations Backgrounds</span></div>
-    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">Level 4 PPT Qualified</span></div>
-    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">Martyn's Law Advisory</span></div>
+    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">ASIS CPP — Gold Standard</span></div>
+    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">MSyI — Security Institute</span></div>
+    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">NPSA · NCSC · NACE Endorsed</span></div>
+    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">DV Cleared — UKSV</span></div>
+    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">Russian-Language Advisory</span></div>
     <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">Hampshire — UK Wide</span></div>
   </div>
   <div class="hero-scroll">
@@ -1387,14 +1513,56 @@ footer {
 
 <div class="gold-divider"></div>
 
+<!-- ACCREDITATIONS -->
+<section class="accreditations" id="accreditations">
+  <div class="accreditations-inner">
+    <div class="accreditations-header">
+      <div class="section-label reveal" style="justify-content: center;">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Accreditation &amp; Standing</span>
+        <div class="section-label-line"></div>
+      </div>
+      <h2 class="accreditations-title reveal">Credentials That <em>Define the Standard</em></h2>
+      <p class="accreditations-sub reveal">Palisade combines the two pre-eminent global security management credentials — ASIS Certified Protection Professional and Security Institute Member (MSyI) — with NPSA-endorsed protective security qualification and the highest tier of UK national security vetting. Few independent practices hold this combination.</p>
+    </div>
+    <div class="accred-grid reveal">
+      <div class="accred-cell">
+        <div class="accred-mark">CPP</div>
+        <div class="accred-name">ASIS Certified Protection Professional</div>
+        <div class="accred-desc">The gold-standard global security management credential.</div>
+      </div>
+      <div class="accred-cell">
+        <div class="accred-mark">MSyI</div>
+        <div class="accred-name">Security Institute Member</div>
+        <div class="accred-desc">Peer-validated professional standing. Royal Patron: HRH The Princess Royal.</div>
+      </div>
+      <div class="accred-cell">
+        <div class="accred-mark">NPSA</div>
+        <div class="accred-name">SFJ L4 PSA — NPSA · NCSC · NACE Endorsed</div>
+        <div class="accred-desc">Level 4 Protective Security Adviser, endorsed by the UK National Protective Security Authority.</div>
+      </div>
+      <div class="accred-cell">
+        <div class="accred-mark">DV</div>
+        <div class="accred-name">Developed Vetting — UKSV</div>
+        <div class="accred-desc">The highest tier of UK personnel security vetting. HMG and CNI engagement ready.</div>
+      </div>
+      <div class="accred-cell">
+        <div class="accred-mark">RU</div>
+        <div class="accred-name">Russian-Language Hostile State Advisory</div>
+        <div class="accred-desc">Operating-language capability for transnational repression and diaspora client engagements.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="section-label reveal">
     <div class="section-label-line"></div>
     <span class="section-label-text">What We Do</span>
   </div>
-  <h2 class="section-title reveal">Our <em>Services</em></h2>
-  <p class="section-intro reveal">Comprehensive physical security assessment and advisory services for corporate, government, and high-net-worth clients.</p>
+  <h2 class="section-title reveal">Service <em>Lines</em></h2>
+  <p class="section-intro reveal">Delivered within the NPSA Protective Security Risk Management lifecycle and the Deter–Detect–Delay–Mitigate–Respond model. Engagements are scoped through the NPSA Operational Requirements (OR) process and structured for board distribution, SIA compliance submission, or insurance underwriter review.</p>
   <div class="services-grid">
     <div class="service-card reveal">
       <div class="service-number">01</div>
@@ -1405,14 +1573,14 @@ footer {
         <path d="M22 29v4"/>
       </svg>
       <h3 class="service-title">Physical Penetration Testing</h3>
-      <p class="service-desc">Rigorous authorised testing of physical security controls using the same techniques employed by hostile state actors, criminal networks, and insider threats. We expose the vulnerabilities that sophisticated adversaries will find and exploit — before they do.</p>
+      <p class="service-desc">Covert, authorised assessment that exercises the complete adversary path — approach, breach, exploitation, and exfiltration — under written scope and authorisation. Conducted to QNUK Level 4 PPT standard, with timestamped photographic and technical evidence and a graded findings report.</p>
       <ul class="service-bullets">
-          <li>Access control bypass — RFID, NFC, Wiegand interception</li>
-          <li>Perimeter assessment and covert building ingress</li>
-          <li>Social engineering, tailgating, and pretexting</li>
-          <li>CCTV defeat, alarm system evaluation, wireless assessment</li>
-          <li>Technical surveillance and network implant testing</li>
-          <li>Detailed findings report with risk-rated remediation</li>
+          <li>Access control audit — 125kHz RFID, 13.56MHz NFC, Wiegand</li>
+          <li>Perimeter integrity and Manual Forced Entry (MFE) review</li>
+          <li>Hostile reconnaissance and social engineering resilience</li>
+          <li>CCTV, alarm, and wireless environment assessment</li>
+          <li>TSCM-awareness and covert implant resilience</li>
+          <li>NPSA-aligned findings report with prioritised OR roadmap</li>
         </ul>
     </div>
     <div class="service-card reveal reveal-delay-1">
@@ -1421,15 +1589,15 @@ footer {
         <path d="M22 6L6 13v12c0 9 7 15.5 16 17 9-1.5 16-8 16-17V13L22 6z"/>
         <path d="M15 22l5 5 9-9"/>
       </svg>
-      <h3 class="service-title">Martyn's Law Advisory</h3>
-      <p class="service-desc">Expert guidance on compliance with the Terrorism (Protection of Premises) Act 2025. We help venues understand their obligations and implement proportionate, effective protective security measures.</p>
+      <h3 class="service-title">Counter-Terrorism &amp; Martyn's Law</h3>
+      <p class="service-desc">Advisory on the Terrorism (Protection of Premises) Act 2025 — SIA regulated, enforcement Spring 2027 — aligned to Home Office statutory guidance and NaCTSO/CTP doctrine. Proportionate measures structured through the NPSA Operational Requirements process.</p>
       <ul class="service-bullets">
           <li>Standard and Enhanced Tier gap analysis</li>
-          <li>Site Security Plan development (NPSA-aligned)</li>
-          <li>Counter-terrorism staff training programme design</li>
-          <li>Hostile vehicle mitigation assessment</li>
-          <li>SIA compliance documentation and submission support</li>
-          <li>Ongoing advisory retainer arrangements available</li>
+          <li>Public protection documentation for SIA submission</li>
+          <li>Evacuation, invacuation, and lockdown procedure review</li>
+          <li>Hostile vehicle mitigation (ISO 22343-1) assessment</li>
+          <li>ACT Awareness and Security training evaluation</li>
+          <li>Hostile reconnaissance indicator advisory</li>
         </ul>
     </div>
     <div class="service-card reveal reveal-delay-2">
@@ -1441,13 +1609,14 @@ footer {
         <path d="M31 34h6M34 31v6"/>
       </svg>
       <h3 class="service-title">Protective Security Advisory</h3>
-      <p class="service-desc">Bespoke protective security for high-net-worth individuals, executives, academics, and organisations facing elevated threat profiles. Foreign intelligence services, hostile state proxies, and organised criminal networks increasingly target individuals on UK soil. We provide the assessment, advice, and protocols to counter these threats.</p>
+      <p class="service-desc">Independent advisory for organisations and principals facing hostile state, transnational repression, and high-value targeting threats. Russian-language capability supports diaspora and at-risk client engagements directly, without intermediary translation.</p>
       <ul class="service-bullets">
-        <li>Residential security assessment</li>
-        <li>Threat and risk profiling</li>
-        <li>Counter-surveillance protocols</li>
-        <li>Technical surveillance countermeasures</li>
-        <li>Transnational repression advisory</li>
+        <li>Security Considerations Assessment (SCA) of the built environment</li>
+        <li>Protective Security Risk Assessment (NPSA PSRM)</li>
+        <li>Insider risk — NPSA ten-step framework</li>
+        <li>Counter-surveillance and TSCM-awareness protocols</li>
+        <li>Transnational repression and diaspora advisory</li>
+        <li>Russian-language hostile state advisory</li>
       </ul>
     </div>
   </div>
@@ -1461,68 +1630,69 @@ footer {
         <div class="section-label-line"></div>
         <span class="section-label-text">About Palisade</span>
       </div>
-      <h2 class="about-title reveal">Operational <em>Experience.</em><br>Professional <em>Standards.</em></h2>
-      <p class="about-body reveal">Palisade Protective Security Advisory Ltd is founded and led by a Royal Marines Commando Major holding a Masters degree in Psychology and over a decade of operational service culminating in senior command. Our practitioner team draws on backgrounds across the UK's special operations community — individuals whose careers were defined by operating against sophisticated state and non-state adversaries.</p>
-      <p class="about-body reveal">The threat landscape facing UK organisations has fundamentally shifted. Foreign intelligence services are conducting aggressive physical and technical operations against critical national infrastructure, academic institutions, defence contractors, and high-net-worth individuals. Organised criminal networks operate with increasing sophistication, and hostile state proxies target dissidents and émigré communities on UK soil. Palisade brings the operational background, professional credentials, and technical capability to assess and harden your physical security against these real-world threats — from large-scale corporate PPT engagements to discreet residential security reviews.</p>
+      <h2 class="about-title reveal">An Independent <em>Specialist Practice.</em><br>Built on Credentials and <em>Operational Depth.</em></h2>
+      <p class="about-body reveal">Palisade is founded and led by a Royal Marines Commando Major (Retd.) — ASIS Certified Protection Professional (CPP), Member of the Security Institute (MSyI), NPSA-endorsed SFJ Level 4 Protective Security Adviser, and Developed Vetting (DV) cleared. The combination of these credentials is uncommon in the independent market; together they evidence both the professional standing and the formal endorsement required for engagements at Critical National Infrastructure, government, and HNW principal level.</p>
+      <p class="about-body reveal">All work is structured within the NPSA Protective Security Risk Management framework and aligned to the four converged pillars — physical, personnel, technical, and cyber. Engagements address the full threat spectrum in NPSA PSRM guidance and the UK NSRA: terrorism, hostile state espionage and reconnaissance, insider threat, transnational repression of diaspora, serious and organised crime, and cyber-physical convergent attacks.</p>
+      <p class="about-body reveal"><strong style="color: var(--gold2); font-weight: 500;">Russian-language capability.</strong> Hostile state activity and transnational repression engagements are supported directly in Russian where required — enabling clearer client liaison and more accurate threat characterisation without intermediary translation.</p>
       <div class="about-credentials reveal">
         <div class="about-cred">
-          <div class="about-cred-title">Clearance</div>
-          <div class="about-cred-value">Developed Vetting (DV) — UK National Security Vetting (UKSV)</div>
+          <div class="about-cred-title">Professional Standing</div>
+          <div class="about-cred-value">ASIS Certified Protection Professional (CPP)&nbsp;&nbsp;|&nbsp;&nbsp;Security Institute Member (MSyI)&nbsp;&nbsp;|&nbsp;&nbsp;ASIS Physical Security Professional (PSP)</div>
         </div>
         <div class="about-cred">
-          <div class="about-cred-title">Academic</div>
-          <div class="about-cred-value">MSc Psychology — University of Portsmouth&nbsp;&nbsp;|&nbsp;&nbsp;BSc (Hons) Navigation &amp; Maritime Science — University of Portsmouth</div>
+          <div class="about-cred-title">Protective Security</div>
+          <div class="about-cred-value">SFJ Awards Level 4 Protective Security Adviser — NPSA · NCSC · NACE endorsed&nbsp;&nbsp;|&nbsp;&nbsp;SFJ Level 3 CT Protective Security &amp; Preparedness (NaCTSO/CTP)</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-title">Clearance</div>
+          <div class="about-cred-value">Developed Vetting (DV) — UK Security Vetting (UKSV). HMG, defence, and CNI engagement ready.</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-title">Physical Penetration Testing</div>
+          <div class="about-cred-value">QNUK (RQF) Level 4 Physical Penetration Testing&nbsp;&nbsp;|&nbsp;&nbsp;SFJ Level 4 Covert Surveillance (Advanced)&nbsp;&nbsp;|&nbsp;&nbsp;NEBOSH IIRSM Certificate in Managing Risk (ISO 31000)</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-title">Counter-Terrorism</div>
+          <div class="about-cred-value">CT Specialists Register — NaCTSO / ICE&nbsp;&nbsp;|&nbsp;&nbsp;ACT Awareness &amp; ACT Security (ProtectUK)&nbsp;&nbsp;|&nbsp;&nbsp;Martyn's Law (TPPA 2025) — SIA Compliance</div>
         </div>
         <div class="about-cred">
           <div class="about-cred-title">Security Management</div>
           <div class="about-cred-value">Diploma in Security Management Level 5 (The Security Institute)&nbsp;&nbsp;|&nbsp;&nbsp;CMI Level 5 Management &amp; Leadership&nbsp;&nbsp;|&nbsp;&nbsp;ILM Level 7 Leadership &amp; Management</div>
         </div>
         <div class="about-cred">
-          <div class="about-cred-title">Physical Penetration Testing</div>
-          <div class="about-cred-value">QNUK Level 4 Physical Penetration Testing&nbsp;&nbsp;|&nbsp;&nbsp;SFJ Level 4 Covert Surveillance (Advanced)&nbsp;&nbsp;|&nbsp;&nbsp;NEBOSH IIRSM Managing Risk</div>
+          <div class="about-cred-title">Operational Background</div>
+          <div class="about-cred-value">Royal Marines Major (Retd.)&nbsp;&nbsp;|&nbsp;&nbsp;Operational Tracking Instructor (MoD)&nbsp;&nbsp;|&nbsp;&nbsp;Three-continent operational service</div>
         </div>
         <div class="about-cred">
-          <div class="about-cred-title">Protective Security</div>
-          <div class="about-cred-value">SFJ Awards Level 4 Protective Security Adviser (in progress)&nbsp;&nbsp;|&nbsp;&nbsp;SFJ Level 3 CTPSaP (in progress)&nbsp;&nbsp;|&nbsp;&nbsp;SIA Close Protection Licence (planned)</div>
+          <div class="about-cred-title">Academic</div>
+          <div class="about-cred-value">MSc Psychology — University of Portsmouth&nbsp;&nbsp;|&nbsp;&nbsp;BSc (Hons) Navigation &amp; Maritime Science — University of Portsmouth</div>
         </div>
         <div class="about-cred">
-          <div class="about-cred-title">Counter-Terrorism</div>
-          <div class="about-cred-value">ACT Awareness &amp; ACT Security (ProtectUK)&nbsp;&nbsp;|&nbsp;&nbsp;NaCTSO CT Specialists Register (planned)</div>
-        </div>
-        <div class="about-cred">
-          <div class="about-cred-title">Military Qualifications</div>
-          <div class="about-cred-value">Operational Tracking Instructor (MoD)</div>
-        </div>
-        <div class="about-cred">
-          <div class="about-cred-title">Professional Memberships</div>
-          <div class="about-cred-value">The Security Institute (MSyl)&nbsp;&nbsp;|&nbsp;&nbsp;ASIS CPP (planned)&nbsp;&nbsp;|&nbsp;&nbsp;ASIS PSP (planned)&nbsp;&nbsp;|&nbsp;&nbsp;Certified Red Team Operator (CRTO) — Zero Point Security</div>
-        </div>
-        <div class="about-cred">
-          <div class="about-cred-title">Location</div>
-          <div class="about-cred-value">Hampshire — Operating UK Wide</div>
+          <div class="about-cred-title">Insurance &amp; Location</div>
+          <div class="about-cred-value">Professional Indemnity £2M&nbsp;&nbsp;|&nbsp;&nbsp;Public Liability £5M&nbsp;&nbsp;|&nbsp;&nbsp;Hampshire — Operating UK Wide</div>
         </div>
       </div>
     </div>
     <div class="about-stats reveal">
       <div class="stat-item">
-        <div class="stat-number">11</div>
-        <div class="stat-label">Years Royal Marines Service</div>
-        <div class="stat-desc">Royal Marines Commando service culminating at Major, across complex operational environments on three continents.</div>
+        <div class="stat-number">CPP</div>
+        <div class="stat-label">ASIS Certified Protection Professional</div>
+        <div class="stat-desc">The gold-standard global security management credential — validating expertise across risk, physical, personnel, investigations, and crisis management.</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">155k</div>
-        <div class="stat-label">Venues Affected by Martyn's Law</div>
-        <div class="stat-desc">Enforcement expected from Spring 2027 — early advisory engagement is essential.</div>
+        <div class="stat-number">MSyI</div>
+        <div class="stat-label">Security Institute Member</div>
+        <div class="stat-desc">Peer-validated professional standing in the UK's largest security membership body. Royal Patron: HRH The Princess Royal.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">NPSA</div>
+        <div class="stat-label">SFJ L4 PSA — Endorsed</div>
+        <div class="stat-desc">National Protective Security Authority, NCSC and NACE endorsed Level 4 Protective Security Adviser qualification.</div>
       </div>
       <div class="stat-item">
         <div class="stat-number">DV</div>
-        <div class="stat-label">Security Cleared</div>
-        <div class="stat-desc">Developed Vetting — the highest tier of UK personnel security vetting, enabling government and classified contract work.</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">L4</div>
-        <div class="stat-label">Qualified PPT Practitioners</div>
-        <div class="stat-desc">QNUK Level 4 Physical Penetration Testing — the professional standard for commercial PPT engagements in the UK.</div>
+        <div class="stat-label">UKSV Developed Vetting</div>
+        <div class="stat-desc">The highest tier of UK personnel security vetting — enabling HMG, defence, and CNI engagements under written authorisation.</div>
       </div>
     </div>
   </div>
@@ -1536,9 +1706,9 @@ footer {
         <div class="martyns-badge-dot"></div>
         <span class="martyns-badge-text">Now in Force</span>
       </div>
-      <h2 class="martyns-title reveal">Martyn's Law — <em>Is Your Venue Compliant?</em></h2>
-      <p class="martyns-body reveal">The Terrorism (Protection of Premises) Act 2025 — known as Martyn's Law — places new statutory duties on venues and events across the United Kingdom. Non-compliance carries significant financial and reputational consequences.</p>
-      <p class="martyns-body reveal">Palisade provides end-to-end Martyn's Law advisory — from initial gap analysis through to completed Site Security Plans and staff training programmes — helping venues meet their obligations proportionately and efficiently.</p>
+      <h2 class="martyns-title reveal">Martyn's Law — <em>Statutory Duty, Proportionate Response.</em></h2>
+      <p class="martyns-body reveal">The Terrorism (Protection of Premises) Act 2025 — SIA regulated, enforcement Spring 2027 — places new statutory duties on qualifying premises and events. Public protection documentation must be aligned to Home Office statutory guidance (April 2026).</p>
+      <p class="martyns-body reveal">Palisade delivers Martyn's Law engagements formatted for SIA compliance submission, structured through the NPSA Operational Requirements process so measures remain proportionate to risk — not over-engineered, and not under-prepared.</p>
       <a href="#contact" class="btn-primary reveal" style="margin-top: 32px; display: inline-flex;">
         Request a Compliance Review
         <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -1588,34 +1758,34 @@ footer {
         <span class="section-label-text">Our Methodology</span>
         <div class="section-label-line"></div>
       </div>
-      <h2 class="process-title reveal">How We <em>Work</em></h2>
-      <p class="process-intro reveal">A rigorous, intelligence-led methodology developed from special operations principles — applied to commercial protective security.</p>
+      <h2 class="process-title reveal">A Five-Phase <em>NPSA-Aligned</em> Methodology</h2>
+      <p class="process-intro reveal">Every Palisade engagement follows a structured methodology aligned to the NPSA Protective Security Risk Management lifecycle. ISO 31000 risk management applied throughout; all work conducted under written scope and authorisation.</p>
     </div>
     <div class="process-steps">
       <div class="process-step reveal">
         <div class="process-step-num">1</div>
-        <div class="process-step-title">Scoping</div>
-        <div class="process-step-desc">Define objectives, agree scope, confirm written authorisation, establish rules of engagement and out-of-bounds areas.</div>
+        <div class="process-step-title">Asset &amp; Threat</div>
+        <div class="process-step-desc">Desktop OSINT and threat profiling to establish asset criticality and adversarial context.</div>
       </div>
       <div class="process-step reveal reveal-delay-1">
         <div class="process-step-num">2</div>
-        <div class="process-step-title">Intelligence</div>
-        <div class="process-step-desc">OSINT collection, target profiling, infrastructure mapping, personnel identification, and digital footprint analysis.</div>
+        <div class="process-step-title">Reconnaissance</div>
+        <div class="process-step-desc">Covert site survey mapping physical vulnerabilities, wireless systems, and access control against the NPSA Deter–Detect model.</div>
       </div>
       <div class="process-step reveal reveal-delay-2">
         <div class="process-step-num">3</div>
-        <div class="process-step-title">Reconnaissance</div>
-        <div class="process-step-desc">Physical site survey, access point identification, CCTV and alarm mapping, wireless environment analysis.</div>
+        <div class="process-step-title">Risk &amp; OR</div>
+        <div class="process-step-desc">Structured vulnerability assessment with risk grading, producing an NPSA-aligned Operational Requirements statement.</div>
       </div>
       <div class="process-step reveal reveal-delay-3">
         <div class="process-step-num">4</div>
-        <div class="process-step-title">Assessment</div>
-        <div class="process-step-desc">Active testing within agreed scope — physical bypass, RFID attacks, social engineering, network implantation, wireless assessment.</div>
+        <div class="process-step-title">Testing</div>
+        <div class="process-step-desc">Active physical or technical assessment within agreed scope — generating timestamped photographic and technical evidence.</div>
       </div>
       <div class="process-step reveal">
         <div class="process-step-num">5</div>
         <div class="process-step-title">Reporting</div>
-        <div class="process-step-desc">Comprehensive findings report, risk-rated remediation roadmap, executive summary, and debrief with evidence demonstration.</div>
+        <div class="process-step-desc">Graded findings report with prioritised remediation roadmap — suitable for board, SIA compliance, or insurance underwriter review.</div>
       </div>
     </div>
   </div>
@@ -1625,7 +1795,7 @@ footer {
 <div class="cta-band">
   <div class="cta-inner">
     <div>
-      <h2 class="cta-title">Ready to <em>test your defences?</em></h2>
+      <h2 class="cta-title">Independent. Credentialed. <em>Cleared.</em></h2>
       <p class="cta-sub">Confidential initial consultation — no obligation</p>
     </div>
     <a href="#contact" class="btn-dark">
@@ -1646,7 +1816,7 @@ footer {
         <span class="section-label-text">Get in Touch</span>
       </div>
       <h2 class="contact-title reveal">Commission an <em>Assessment</em></h2>
-      <p class="contact-body reveal">All enquiries are treated in strict confidence. Initial consultations are provided without obligation. We operate under Non-Disclosure Agreements as standard for sensitive engagements.</p>
+      <p class="contact-body reveal">All enquiries are treated in strict confidence. Initial consultations are provided without obligation. Engagements are conducted under Non-Disclosure Agreement as standard, with written scope and authorisation on every assignment. Russian-language enquiries welcomed.</p>
       <div class="contact-details reveal">
         <div class="contact-item">
           <div class="contact-item-icon">
@@ -1656,7 +1826,7 @@ footer {
           </div>
           <div>
             <div class="contact-item-label">Email</div>
-            <div class="contact-item-value">info@palisadeprotectivesecurityadvisory.co.uk</div>
+            <div class="contact-item-value">info@palisadeprotectivesecurity.co.uk</div>
           </div>
         </div>
         <div class="contact-item">
@@ -1679,8 +1849,8 @@ footer {
             </svg>
           </div>
           <div>
-            <div class="contact-item-label">Clearance</div>
-            <div class="contact-item-value">DV Cleared — Government & Sensitive Contracts</div>
+            <div class="contact-item-label">Standing &amp; Clearance</div>
+            <div class="contact-item-value">ASIS CPP · MSyI · NPSA-endorsed · DV Cleared (UKSV)</div>
           </div>
         </div>
       </div>
@@ -1709,9 +1879,10 @@ footer {
         <select class="form-select form-input">
           <option value="" disabled selected>Select a service</option>
           <option>Physical Penetration Testing</option>
-          <option>Martyn's Law Advisory</option>
+          <option>Counter-Terrorism &amp; Martyn's Law</option>
           <option>Protective Security Advisory</option>
-          <option>Residential Security Assessment</option>
+          <option>NPSA PSRM / Operational Requirements</option>
+          <option>Russian-Language Hostile State Advisory</option>
           <option>Multiple Services / Not Sure</option>
         </select>
       </div>
@@ -1734,31 +1905,35 @@ footer {
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="nav-logo-text">
-          <span class="nav-name">Palisade</span>
-          <span class="nav-sub">Protective Security Advisory Ltd</span>
-        </div>
+        <a href="#" style="display:flex; align-items:center; gap:16px; text-decoration:none;">
+          <img src="logo.png" alt="Palisade" style="width:64px; height:64px; object-fit:contain;">
+          <div class="nav-logo-text">
+            <span class="nav-name">Palisade</span>
+            <span class="nav-sub">Protective Security Advisory Ltd</span>
+          </div>
+        </a>
         <div class="footer-brand-reg">
-          Registered in England and Wales<br>
-          Level 4 PPT Qualified &bull; DV Cleared &bull; Hampshire
+          Registered in England and Wales &bull; Hampshire — UK Wide<br>
+          NPSA &bull; NaCTSO &bull; SIA &bull; NCSC &bull; NACE &nbsp;|&nbsp; MSyI &bull; ASIS CPP &bull; DV Cleared<br>
+          Professional Indemnity £2M &bull; Public Liability £5M
         </div>
       </div>
       <div class="footer-nav">
         <div class="footer-nav-col">
-          <h4>Services</h4>
+          <h4>Service Lines</h4>
           <ul>
             <li><a href="#services">Physical Penetration Testing</a></li>
-            <li><a href="#martyns">Martyn's Law Advisory</a></li>
+            <li><a href="#martyns">Counter-Terrorism &amp; Martyn's Law</a></li>
             <li><a href="#services">Protective Security Advisory</a></li>
-            <li><a href="#services">Residential Security</a></li>
+            <li><a href="#services">Russian-Language Advisory</a></li>
           </ul>
         </div>
         <div class="footer-nav-col">
-          <h4>Company</h4>
+          <h4>Practice</h4>
           <ul>
+            <li><a href="#accreditations">Accreditation</a></li>
             <li><a href="#about">About Palisade</a></li>
             <li><a href="#process">Methodology</a></li>
-            <li><a href="#contact">Contact</a></li>
             <li><a href="#contact">Enquire</a></li>
           </ul>
         </div>
