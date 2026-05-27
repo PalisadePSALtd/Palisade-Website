@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palisade Protective Security Advisory Ltd</title>
+<meta name="copyright" content="© 2026 Palisade Protective Security Advisory Ltd. All rights reserved.">
+<meta name="author" content="Palisade Protective Security Advisory Ltd">
+<meta name="description" content="Palisade Protective Security Advisory Ltd — DV-cleared physical penetration testing and protective security advisory. Specialists in countering hostile state activity, foreign intelligence service threats, and CNI targeting. Hampshire, UK-wide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+:root {
+  --navy:     #0a1628;
+  --navy2:    #0f1f3d;
+  --navy3:    #162040;
+  --gold:     #b8934a;
+  --gold2:    #d4aa6a;
+  --gold3:    #e8c88a;
+  --gold-dim: rgba(184,147,74,0.12);
+  --steel:    #2a5298;
+  --steel2:   #3a6bc0;
+  --cream:    #f5f0e8;
+  --cream2:   #ede5d4;
+  --text:     #1a1a2e;
+  --text2:    #3a3a5c;
+  --text3:    #6a6a8a;
+  --white:    #ffffff;
+  --serif:    'Cormorant Garamond', serif;
+  --display:  'Barlow Condensed', sans-serif;
+  --body:     'Barlow', sans-serif;
+}
+
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--body);
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.4;
+}
+
+/* ── NAVIGATION ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 5vw;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, rgba(10,22,40,0.98) 0%, rgba(10,22,40,0) 100%);
+  backdrop-filter: blur(2px);
+  transition: background 0.3s;
+}
+
+nav.scrolled {
+  background: rgba(10,22,40,0.97);
+  border-bottom: 1px solid rgba(184,147,74,0.15);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.nav-shield {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-name {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1;
+}
+
+.nav-sub {
+  font-family: var(--display);
+  font-size: 0.6rem;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  line-height: 1;
+  margin-top: 3px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--display);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold2); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  font-family: var(--display) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: var(--navy) !important;
+  background: var(--gold);
+  padding: 9px 20px;
+  border: none;
+  text-decoration: none;
+  transition: all 0.2s !important;
+}
+
+.nav-cta:hover {
+  background: var(--gold2) !important;
+  color: var(--navy) !important;
+}
+
+.nav-cta::after { display: none !important; }
+
+/* Mobile menu */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid rgba(184,147,74,0.4);
+  color: var(--gold2);
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: var(--gold2);
+  transition: all 0.3s;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(42,82,152,0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(184,147,74,0.08) 0%, transparent 60%),
+    linear-gradient(160deg, var(--navy) 0%, var(--navy2) 50%, var(--navy3) 100%);
+}
+
+/* Geometric lines */
+.hero-lines {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-lines svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  opacity: 0.06;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 5vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 72px;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.3s forwards;
+}
+
+.hero-eyebrow-line {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-eyebrow-text {
+  font-family: var(--display);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold2);
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.5s forwards;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold2);
+  font-weight: 300;
+}
+
+.hero-title strong {
+  font-weight: 600;
+  display: block;
+}
+
+.hero-desc {
+  font-family: var(--body);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  max-width: 540px;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.7s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.9s forwards;
+}
+
+.btn-primary {
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--gold);
+  padding: 14px 32px;
+  text-decoration: none;
+  border: 2px solid var(--gold);
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary:hover {
+  background: var(--gold2);
+  border-color: var(--gold2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(184,147,74,0.3);
+}
+
+.btn-primary svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s;
+}
+
+.btn-primary:hover svg { transform: translateX(4px); }
+
+.btn-secondary {
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  padding-bottom: 2px;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  color: var(--gold2);
+  border-color: var(--gold2);
+}
+
+.hero-credentials {
+  position: absolute;
+  right: 5vw;
+  bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeLeft 1s ease 1.1s forwards;
+}
+
+.cred-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cred-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cred-text {
+  font-family: var(--display);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 5vw;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 1.3s forwards;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+  animation: scrollPulse 2s ease infinite;
+}
+
+.hero-scroll-text {
+  font-family: var(--display);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  writing-mode: vertical-rl;
+}
+
+/* ── DIVIDER ── */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold2) 70%, transparent 100%);
+  opacity: 0.3;
+}
+
+/* ── SERVICES ── */
+.services {
+  background: var(--cream);
+  padding: 120px 5vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(270deg, rgba(184,147,74,0.04) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.section-label-line {
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-label-text {
+  font-family: var(--display);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--steel);
+}
+
+.section-intro {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text3);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 72px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.service-card {
+  background: var(--white);
+  padding: 48px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--gold);
+  transition: height 0.4s;
+}
+
+.service-card:hover { transform: translateY(-4px); }
+.service-card:hover::before { height: 100%; }
+
+.service-number {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(184,147,74,0.15);
+  line-height: 1;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.service-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 20px;
+  color: var(--gold);
+}
+
+.service-title {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.service-desc {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.service-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.service-bullets li {
+  font-family: var(--display);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.service-bullets li::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ── ABOUT ── */
+.about {
+  background: var(--navy2);
+  padding: 120px 5vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-label { margin-bottom: 20px; }
+
+.about-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.about-title em {
+  font-style: italic;
+  color: var(--gold2);
+}
+
+.about-body {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.about-credentials {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.about-cred {
+  padding: 20px;
+  border: 1px solid rgba(184,147,74,0.2);
+  background: rgba(184,147,74,0.04);
+}
+
+.about-cred-title {
+  font-family: var(--display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.about-cred-value {
+  font-family: var(--display);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.3;
+}
+
+.about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.stat-item {
+  padding-left: 24px;
+  border-left: 2px solid var(--gold);
+}
+
+.stat-number {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--gold2);
+  line-height: 1;
+  font-style: italic;
+}
+
+.stat-label {
+  font-family: var(--display);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: 6px;
+}
+
+.stat-desc {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+/* ── MARTYN'S LAW ── */
+.martyns {
+  background: var(--cream);
+  padding: 100px 5vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.martyns-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.martyns-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--navy);
+  padding: 8px 16px;
+  margin-bottom: 28px;
+}
+
+.martyns-badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: dotPulse 2s ease infinite;
+}
+
+.martyns-badge-text {
+  font-family: var(--display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold2);
+}
+
+.martyns-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.martyns-title em { font-style: italic; color: var(--steel); }
+
+.martyns-body {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text2);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.martyns-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 39px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(184,147,74,0.2);
+}
+
+.timeline-date {
+  font-family: var(--display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-top: 4px;
+  text-align: right;
+  padding-right: 20px;
+  position: relative;
+}
+
+.timeline-date::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--gold);
+  background: var(--cream);
+  border-radius: 50%;
+}
+
+.timeline-content-title {
+  font-family: var(--display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.timeline-content-desc {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--text3);
+  line-height: 1.6;
+}
+
+/* ── PROCESS ── */
+.process {
+  background: var(--navy);
+  padding: 100px 5vw;
+}
+
+.process-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.process-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.process-title em { font-style: italic; color: var(--gold2); }
+
+.process-intro {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,147,74,0.3), rgba(184,147,74,0.3), transparent);
+}
+
+.process-step {
+  padding: 0 16px;
+  text-align: center;
+  position: relative;
+}
+
+.process-step-num {
+  width: 72px;
+  height: 72px;
+  border: 1px solid rgba(184,147,74,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  background: var(--navy2);
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-style: italic;
+  color: var(--gold2);
+  font-weight: 300;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+.process-step:hover .process-step-num {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+
+.process-step-title {
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.process-step-desc {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+}
+
+/* ── CTA BAND ── */
+.cta-band {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 50%, #c49a50 100%);
+  padding: 80px 5vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-band::before {
+  content: 'PALISADE';
+  position: absolute;
+  top: 50%;
+  right: -2%;
+  transform: translateY(-50%);
+  font-family: var(--display);
+  font-size: 12rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: rgba(0,0,0,0.06);
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.cta-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.cta-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 300;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.cta-title em { font-style: italic; font-weight: 300; }
+
+.cta-sub {
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(10,22,40,0.6);
+  margin-top: 8px;
+}
+
+.btn-dark {
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  background: var(--navy);
+  padding: 16px 36px;
+  text-decoration: none;
+  border: 2px solid var(--navy);
+  transition: all 0.25s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.btn-dark:hover {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+/* ── CONTACT ── */
+.contact {
+  background: var(--navy2);
+  padding: 100px 5vw;
+}
+
+.contact-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.contact-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.contact-title em { font-style: italic; color: var(--gold2); }
+
+.contact-body {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.contact-item-icon {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(184,147,74,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.contact-item-label {
+  font-family: var(--display);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.contact-item-value {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-family: var(--display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.form-input, .form-select, .form-textarea {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white);
+  font-family: var(--body);
+  font-size: 0.9rem;
+  font-weight: 300;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--gold);
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+
+.form-select option { background: var(--navy2); color: var(--white); }
+
+.form-textarea { resize: vertical; min-height: 100px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.form-submit {
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--gold);
+  padding: 14px 32px;
+  border: 2px solid var(--gold);
+  cursor: pointer;
+  transition: all 0.25s;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-submit:hover {
+  background: var(--gold2);
+  border-color: var(--gold2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(184,147,74,0.3);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(184,147,74,0.15);
+  padding: 48px 5vw 32px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-brand .nav-name { font-size: 0.9rem; }
+.footer-brand .nav-sub { margin-top: 4px; }
+
+.footer-brand-reg {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.25);
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.footer-nav-col h4 {
+  font-family: var(--display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.footer-nav-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-nav-col a {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+  font-family: var(--body);
+}
+
+.footer-nav-col a:hover { color: var(--gold2); }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.2);
+  font-family: var(--body);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-legal a {
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-legal a:hover { color: var(--gold2); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 0.8; }
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(184,147,74,0.4); }
+  50%       { opacity: 0.6; box-shadow: 0 0 0 6px rgba(184,147,74,0); }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .process-steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .process-steps::before { display: none; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(10,22,40,0.98);
+    padding: 24px 5vw;
+    gap: 20px;
+    border-top: 1px solid rgba(184,147,74,0.15);
+  }
+  .nav-links.open a { font-size: 1rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .martyns-inner { grid-template-columns: 1fr; gap: 40px; }
+  .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-credentials { display: none; }
+  .about-credentials { grid-template-columns: 1fr; }
+  .footer-top { flex-direction: column; }
+  .footer-nav { gap: 32px; }
+}
+
+@media (max-width: 480px) {
+  .process-steps { grid-template-columns: 1fr; }
+  .cta-inner { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <img src="data:image/png;base64,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" class="nav-shield" alt="Palisade Protective Security Advisory Ltd" style="width:44px;height:44px;object-fit:contain;">
+    <div class="nav-logo-text">
+      <span class="nav-name">Palisade</span>
+      <span class="nav-sub">Protective Security Advisory</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#martyns">Martyn's Law</a></li>
+    <li><a href="#process">Methodology</a></li>
+    <li><a href="#contact" class="nav-cta">Enquire</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines">
+    <svg viewBox="0 0 800 900" fill="none" preserveAspectRatio="xMidYMid slice">
+      <line x1="0" y1="200" x2="800" y2="400" stroke="#b8934a" stroke-width="0.5"/>
+      <line x1="200" y1="0" x2="600" y2="900" stroke="#b8934a" stroke-width="0.5"/>
+      <line x1="400" y1="0" x2="800" y2="600" stroke="#b8934a" stroke-width="0.5"/>
+      <line x1="0" y1="600" x2="800" y2="200" stroke="#2a5298" stroke-width="0.5"/>
+      <rect x="300" y="150" width="300" height="300" stroke="#b8934a" stroke-width="0.5" transform="rotate(20 450 300)"/>
+      <circle cx="600" cy="300" r="200" stroke="#2a5298" stroke-width="0.5"/>
+      <circle cx="600" cy="300" r="120" stroke="#b8934a" stroke-width="0.3"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">Protective Security Advisory — Hampshire</span>
+    </div>
+    <h1 class="hero-title">
+      <strong>When the Threat</strong><br>
+      <em>is Real,</em><br>
+      <strong>Standards Matter</strong>
+    </h1>
+    <p class="hero-desc">Physical penetration testing, Martyn's Law advisory, and protective security advisory — delivered by DV-cleared practitioners who understand the threat as well as the defence. In an era of escalating hostile state activity, organised criminal targeting of UK infrastructure and institutions, and growing risk to high-value individuals, robust physical security is no longer optional.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        Commission an Assessment
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 7h12M8 2l5 5-5 5"/>
+        </svg>
+      </a>
+      <a href="#services" class="btn-secondary">View Services</a>
+    </div>
+  </div>
+  <div class="hero-credentials">
+    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">DV Cleared Practitioners</span></div>
+    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">Special Operations Backgrounds</span></div>
+    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">Level 4 PPT Qualified</span></div>
+    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">Martyn's Law Advisory</span></div>
+    <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">Hampshire — UK Wide</span></div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span class="hero-scroll-text">Scroll</span>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-label reveal">
+    <div class="section-label-line"></div>
+    <span class="section-label-text">What We Do</span>
+  </div>
+  <h2 class="section-title reveal">Our <em>Services</em></h2>
+  <p class="section-intro reveal">Comprehensive physical security assessment and advisory services for corporate, government, and high-net-worth clients.</p>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-number">01</div>
+      <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+        <rect x="8" y="14" width="28" height="22" rx="1"/>
+        <path d="M16 14v-3a6 6 0 0 1 12 0v3"/>
+        <circle cx="22" cy="26" r="3"/>
+        <path d="M22 29v4"/>
+      </svg>
+      <h3 class="service-title">Physical Penetration Testing</h3>
+      <p class="service-desc">Rigorous authorised testing of physical security controls using the same techniques employed by hostile state actors, criminal networks, and insider threats. We expose the vulnerabilities that sophisticated adversaries will find and exploit — before they do.</p>
+      <ul class="service-bullets">
+          <li>Access control bypass — RFID, NFC, Wiegand interception</li>
+          <li>Perimeter assessment and covert building ingress</li>
+          <li>Social engineering, tailgating, and pretexting</li>
+          <li>CCTV defeat, alarm system evaluation, wireless assessment</li>
+          <li>Technical surveillance and network implant testing</li>
+          <li>Detailed findings report with risk-rated remediation</li>
+        </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-number">02</div>
+      <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M22 6L6 13v12c0 9 7 15.5 16 17 9-1.5 16-8 16-17V13L22 6z"/>
+        <path d="M15 22l5 5 9-9"/>
+      </svg>
+      <h3 class="service-title">Martyn's Law Advisory</h3>
+      <p class="service-desc">Expert guidance on compliance with the Terrorism (Protection of Premises) Act 2025. We help venues understand their obligations and implement proportionate, effective protective security measures.</p>
+      <ul class="service-bullets">
+          <li>Standard and Enhanced Tier gap analysis</li>
+          <li>Site Security Plan development (NPSA-aligned)</li>
+          <li>Counter-terrorism staff training programme design</li>
+          <li>Hostile vehicle mitigation assessment</li>
+          <li>SIA compliance documentation and submission support</li>
+          <li>Ongoing advisory retainer arrangements available</li>
+        </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-number">03</div>
+      <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M22 8C14 8 8 14 8 22s6 14 14 14 14-6 14-14S30 8 22 8z"/>
+        <path d="M22 14v8l5 3"/>
+        <circle cx="34" cy="34" r="6"/>
+        <path d="M31 34h6M34 31v6"/>
+      </svg>
+      <h3 class="service-title">Protective Security Advisory</h3>
+      <p class="service-desc">Bespoke protective security for high-net-worth individuals, executives, academics, and organisations facing elevated threat profiles. Foreign intelligence services, hostile state proxies, and organised criminal networks increasingly target individuals on UK soil. We provide the assessment, advice, and protocols to counter these threats.</p>
+      <ul class="service-bullets">
+        <li>Residential security assessment</li>
+        <li>Threat and risk profiling</li>
+        <li>Counter-surveillance protocols</li>
+        <li>Technical surveillance countermeasures</li>
+        <li>Transnational repression advisory</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div>
+      <div class="about-label section-label reveal">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">About Palisade</span>
+      </div>
+      <h2 class="about-title reveal">Operational <em>Experience.</em><br>Professional <em>Standards.</em></h2>
+      <p class="about-body reveal">Palisade Protective Security Advisory Ltd is founded and led by a Royal Marines Commando Major holding a Masters degree in Psychology and over a decade of operational service culminating in senior command. Our practitioner team draws on backgrounds across the UK's special operations community — individuals whose careers were defined by operating against sophisticated state and non-state adversaries.</p>
+      <p class="about-body reveal">The threat landscape facing UK organisations has fundamentally shifted. Foreign intelligence services are conducting aggressive physical and technical operations against critical national infrastructure, academic institutions, defence contractors, and high-net-worth individuals. Organised criminal networks operate with increasing sophistication, and hostile state proxies target dissidents and émigré communities on UK soil. Palisade brings the operational background, professional credentials, and technical capability to assess and harden your physical security against these real-world threats — from large-scale corporate PPT engagements to discreet residential security reviews.</p>
+      <div class="about-credentials reveal">
+        <div class="about-cred">
+          <div class="about-cred-title">Clearance</div>
+          <div class="about-cred-value">Developed Vetting (DV) — UK National Security Vetting (UKSV)</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-title">Academic</div>
+          <div class="about-cred-value">MSc Psychology — University of Portsmouth&nbsp;&nbsp;|&nbsp;&nbsp;BSc (Hons) Navigation &amp; Maritime Science — University of Portsmouth</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-title">Security Management</div>
+          <div class="about-cred-value">Diploma in Security Management Level 5 (The Security Institute)&nbsp;&nbsp;|&nbsp;&nbsp;CMI Level 5 Management &amp; Leadership&nbsp;&nbsp;|&nbsp;&nbsp;ILM Level 7 Leadership &amp; Management</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-title">Physical Penetration Testing</div>
+          <div class="about-cred-value">QNUK Level 4 Physical Penetration Testing&nbsp;&nbsp;|&nbsp;&nbsp;SFJ Level 4 Covert Surveillance (Advanced)&nbsp;&nbsp;|&nbsp;&nbsp;NEBOSH IIRSM Managing Risk</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-title">Protective Security</div>
+          <div class="about-cred-value">SFJ Awards Level 4 Protective Security Adviser (in progress)&nbsp;&nbsp;|&nbsp;&nbsp;SFJ Level 3 CTPSaP (in progress)&nbsp;&nbsp;|&nbsp;&nbsp;SIA Close Protection Licence (planned)</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-title">Counter-Terrorism</div>
+          <div class="about-cred-value">ACT Awareness &amp; ACT Security (ProtectUK)&nbsp;&nbsp;|&nbsp;&nbsp;NaCTSO CT Specialists Register (planned)</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-title">Military Qualifications</div>
+          <div class="about-cred-value">Operational Tracking Instructor (MoD)</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-title">Professional Memberships</div>
+          <div class="about-cred-value">The Security Institute (MSyl)&nbsp;&nbsp;|&nbsp;&nbsp;ASIS CPP (planned)&nbsp;&nbsp;|&nbsp;&nbsp;ASIS PSP (planned)&nbsp;&nbsp;|&nbsp;&nbsp;Certified Red Team Operator (CRTO) — Zero Point Security</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-title">Location</div>
+          <div class="about-cred-value">Hampshire — Operating UK Wide</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-stats reveal">
+      <div class="stat-item">
+        <div class="stat-number">11</div>
+        <div class="stat-label">Years Royal Marines Service</div>
+        <div class="stat-desc">Royal Marines Commando service culminating at Major, across complex operational environments on three continents.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">155k</div>
+        <div class="stat-label">Venues Affected by Martyn's Law</div>
+        <div class="stat-desc">Enforcement expected from Spring 2027 — early advisory engagement is essential.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">DV</div>
+        <div class="stat-label">Security Cleared</div>
+        <div class="stat-desc">Developed Vetting — the highest tier of UK personnel security vetting, enabling government and classified contract work.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">L4</div>
+        <div class="stat-label">Qualified PPT Practitioners</div>
+        <div class="stat-desc">QNUK Level 4 Physical Penetration Testing — the professional standard for commercial PPT engagements in the UK.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARTYN'S LAW -->
+<section class="martyns" id="martyns">
+  <div class="martyns-inner">
+    <div>
+      <div class="martyns-badge reveal">
+        <div class="martyns-badge-dot"></div>
+        <span class="martyns-badge-text">Now in Force</span>
+      </div>
+      <h2 class="martyns-title reveal">Martyn's Law — <em>Is Your Venue Compliant?</em></h2>
+      <p class="martyns-body reveal">The Terrorism (Protection of Premises) Act 2025 — known as Martyn's Law — places new statutory duties on venues and events across the United Kingdom. Non-compliance carries significant financial and reputational consequences.</p>
+      <p class="martyns-body reveal">Palisade provides end-to-end Martyn's Law advisory — from initial gap analysis through to completed Site Security Plans and staff training programmes — helping venues meet their obligations proportionately and efficiently.</p>
+      <a href="#contact" class="btn-primary reveal" style="margin-top: 32px; display: inline-flex;">
+        Request a Compliance Review
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 7h12M8 2l5 5-5 5"/>
+        </svg>
+      </a>
+    </div>
+    <div class="martyns-timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-date">2025</div>
+        <div>
+          <div class="timeline-content-title">Act Receives Royal Assent</div>
+          <div class="timeline-content-desc">Terrorism (Protection of Premises) Act 2025 becomes law. Standard and Enhanced Tier duties established for qualifying premises and events.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Early 2026</div>
+        <div>
+          <div class="timeline-content-title">Threat Level Raised to Severe</div>
+          <div class="timeline-content-desc">UK national threat level raised to SEVERE in April 2026 — an attack is considered highly likely. Urgency of compliance increased significantly.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Spring 2027</div>
+        <div>
+          <div class="timeline-content-title">Enforcement Begins</div>
+          <div class="timeline-content-desc">SIA enforcement of Martyn's Law expected. Venues without compliant Site Security Plans face inspection, remediation notices, and financial penalties.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Now</div>
+        <div>
+          <div class="timeline-content-title">Act Now — Engage Palisade</div>
+          <div class="timeline-content-desc">Early engagement allows proportionate, well-considered compliance. Rushing to comply under enforcement pressure increases cost and reduces quality of outcome.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-inner">
+    <div class="process-header">
+      <div class="section-label reveal" style="justify-content: center;">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Our Methodology</span>
+        <div class="section-label-line"></div>
+      </div>
+      <h2 class="process-title reveal">How We <em>Work</em></h2>
+      <p class="process-intro reveal">A rigorous, intelligence-led methodology developed from special operations principles — applied to commercial protective security.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="process-step-num">1</div>
+        <div class="process-step-title">Scoping</div>
+        <div class="process-step-desc">Define objectives, agree scope, confirm written authorisation, establish rules of engagement and out-of-bounds areas.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-step-num">2</div>
+        <div class="process-step-title">Intelligence</div>
+        <div class="process-step-desc">OSINT collection, target profiling, infrastructure mapping, personnel identification, and digital footprint analysis.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-step-num">3</div>
+        <div class="process-step-title">Reconnaissance</div>
+        <div class="process-step-desc">Physical site survey, access point identification, CCTV and alarm mapping, wireless environment analysis.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-step-num">4</div>
+        <div class="process-step-title">Assessment</div>
+        <div class="process-step-desc">Active testing within agreed scope — physical bypass, RFID attacks, social engineering, network implantation, wireless assessment.</div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step-num">5</div>
+        <div class="process-step-title">Reporting</div>
+        <div class="process-step-desc">Comprehensive findings report, risk-rated remediation roadmap, executive summary, and debrief with evidence demonstration.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-inner">
+    <div>
+      <h2 class="cta-title">Ready to <em>test your defences?</em></h2>
+      <p class="cta-sub">Confidential initial consultation — no obligation</p>
+    </div>
+    <a href="#contact" class="btn-dark">
+      Commission an Assessment
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M1 7h12M8 2l5 5-5 5"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-label reveal">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Get in Touch</span>
+      </div>
+      <h2 class="contact-title reveal">Commission an <em>Assessment</em></h2>
+      <p class="contact-body reveal">All enquiries are treated in strict confidence. Initial consultations are provided without obligation. We operate under Non-Disclosure Agreements as standard for sensitive engagements.</p>
+      <div class="contact-details reveal">
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M2 4l6 5 6-5M2 4h12v9H2z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">info@palisadeprotectivesecurityadvisory.co.uk</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M8 2C5.8 2 4 3.8 4 6c0 3.5 4 8 4 8s4-4.5 4-8c0-2.2-1.8-4-4-4z"/>
+              <circle cx="8" cy="6" r="1.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Location</div>
+            <div class="contact-item-value">Hampshire — Operating UK Wide</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="2" y="4" width="12" height="9" rx="1"/>
+              <path d="M5 4V3a3 3 0 0 1 6 0v1"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Clearance</div>
+            <div class="contact-item-value">DV Cleared — Government & Sensitive Contracts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-input" placeholder="First name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-input" placeholder="Last name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Organisation</label>
+        <input type="text" class="form-input" placeholder="Company or organisation name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Service Required</label>
+        <select class="form-select form-input">
+          <option value="" disabled selected>Select a service</option>
+          <option>Physical Penetration Testing</option>
+          <option>Martyn's Law Advisory</option>
+          <option>Protective Security Advisory</option>
+          <option>Residential Security Assessment</option>
+          <option>Multiple Services / Not Sure</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Brief Description</label>
+        <textarea class="form-textarea" placeholder="Briefly describe your requirements or the nature of your enquiry..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">
+        Submit Enquiry
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 7h12M8 2l5 5-5 5"/>
+        </svg>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo-text">
+          <span class="nav-name">Palisade</span>
+          <span class="nav-sub">Protective Security Advisory Ltd</span>
+        </div>
+        <div class="footer-brand-reg">
+          Registered in England and Wales<br>
+          Level 4 PPT Qualified &bull; DV Cleared &bull; Hampshire
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Physical Penetration Testing</a></li>
+            <li><a href="#martyns">Martyn's Law Advisory</a></li>
+            <li><a href="#services">Protective Security Advisory</a></li>
+            <li><a href="#services">Residential Security</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Palisade</a></li>
+            <li><a href="#process">Methodology</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Enquire</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Palisade Protective Security Advisory Ltd. All rights reserved. Registered in England and Wales. Proprietary methodology and software copyright Palisade Protective Security Advisory Ltd.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Engagement</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile nav
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+// Close mobile nav on link click
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      const offset = 72;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// Form submit
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Enquiry Sent';
+  btn.style.background = '#1a6b4a';
+  btn.style.borderColor = '#1a6b4a';
+  btn.style.color = '#fff';
+  setTimeout(() => {
+    btn.innerHTML = 'Submit Enquiry <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg>';
+    btn.style.background = '';
+    btn.style.borderColor = '';
+    btn.style.color = '';
+    e.target.reset();
+  }, 3000);
+}
+</script>
+</body>
+</html>
