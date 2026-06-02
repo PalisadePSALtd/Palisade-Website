@@ -6,7 +6,7 @@
 <title>Palisade Protective Security Advisory Ltd</title>
 <meta name="copyright" content="© 2026 Palisade Protective Security Advisory Ltd. All rights reserved.">
 <meta name="author" content="Palisade Protective Security Advisory Ltd">
-<meta name="description" content="Palisade Protective Security Advisory Ltd — National Protective Security Authority (NPSA) endorsed protective security specialist. ASIS International Certified Protection Professional (CPP) and Member of the Security Institute (MSyI) accredited; Developed Vetting (DV) cleared. Independent advisory delivered within the NPSA Protective Security Risk Management framework. Russian-language hostile state advisory available. Hampshire, United Kingdom-wide.">
+<meta name="description" content="Palisade Protective Security Advisory Ltd — National Protective Security Authority (NPSA) endorsed protective security specialist. ASIS International Certified Protection Professional (CPP) and Member of the Security Institute (MSyI) accredited; Developed Vetting (DV) cleared. Independent advisory delivered within the NPSA Protective Security Risk Management framework. Supported by a specialist cadre of former elite British Army and Royal Navy operatives — drone and counter-UAS, discreet manoeuvre, anti-surveillance, and sabotage threat assessment — for Critical National Infrastructure and hostile state threat engagements. Russian-language hostile state advisory available. Hampshire, United Kingdom-wide.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
@@ -812,6 +812,154 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   line-height: 1.6;
 }
 
+/* ── SPECIALIST CAPABILITY ── */
+.capability {
+  background: var(--navy);
+  padding: 110px 5vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.capability::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 22%, rgba(184,147,74,0.05) 0%, transparent 45%),
+    radial-gradient(circle at 88% 78%, rgba(42,82,152,0.06) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.capability-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.capability-header {
+  text-align: center;
+  margin-bottom: 64px;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.capability-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.capability-title em {
+  font-style: italic;
+  color: var(--gold2);
+}
+
+.capability-sub {
+  font-size: 0.98rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.8;
+}
+
+.capability-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-bottom: 40px;
+}
+
+.capability-card {
+  background: var(--navy2);
+  padding: 40px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, background 0.3s;
+  border-top: 1px solid rgba(184,147,74,0.15);
+}
+
+.capability-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--gold);
+  transition: height 0.4s;
+}
+
+.capability-card:hover { transform: translateY(-4px); background: var(--navy3); }
+.capability-card:hover::before { height: 100%; }
+
+.capability-num {
+  font-family: var(--serif);
+  font-size: 2.6rem;
+  font-weight: 300;
+  color: rgba(184,147,74,0.25);
+  line-height: 1;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.capability-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 18px;
+  color: var(--gold2);
+}
+
+.capability-name {
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 14px;
+  line-height: 1.25;
+}
+
+.capability-desc {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+}
+
+.capability-footer {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(184,147,74,0.12);
+}
+
+.capability-foot-line {
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 12px;
+}
+
+.capability-foot-text {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+}
+
+@media (max-width: 980px) {
+  .capability-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .capability-grid { grid-template-columns: 1fr; }
+}
+
 /* ── MARTYN'S LAW ── */
 .martyns {
   background: var(--cream);
@@ -1462,6 +1610,7 @@ footer {
     <li><a href="#accreditations">Accreditation</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#capability">Capability</a></li>
     <li><a href="#martyns">Martyn's Law</a></li>
     <li><a href="#process">Methodology</a></li>
     <li><a href="#contact" class="nav-cta">Enquire</a></li>
@@ -1699,6 +1848,70 @@ footer {
   </div>
 </section>
 
+<!-- SPECIALIST CAPABILITY -->
+<section class="capability" id="capability">
+  <div class="capability-inner">
+    <div class="capability-header">
+      <div class="section-label reveal" style="justify-content: center;">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Specialist Capability</span>
+        <div class="section-label-line"></div>
+      </div>
+      <h2 class="capability-title reveal">A Cadre of <em>Former Elite</em> British Army &amp; Royal Navy Operatives.</h2>
+      <p class="capability-sub reveal">For engagements where the threat picture extends beyond commercial criminality into state-directed reconnaissance, sabotage, and hybrid effect against United Kingdom Critical National Infrastructure, the Palisade practice is supported by a discreet cadre of former elite British Army and Royal Navy operatives &mdash; engaged to the requirement, under written scope and authorisation. The combination of a Royal Marines Major (Retd.) leading the practice and an operationally current specialist bench provides directly transferable skill against the threats now codified in the United Kingdom National Security Risk Assessment as confronting CNI operators.</p>
+    </div>
+    <div class="capability-grid">
+      <div class="capability-card reveal">
+        <div class="capability-num">01</div>
+        <svg class="capability-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="22" cy="22" r="3"/>
+          <path d="M22 19V13M22 25V31M19 22H13M25 22H31"/>
+          <circle cx="22" cy="11" r="3.5"/>
+          <circle cx="22" cy="33" r="3.5"/>
+          <circle cx="11" cy="22" r="3.5"/>
+          <circle cx="33" cy="22" r="3.5"/>
+        </svg>
+        <h3 class="capability-name">Drone &amp; Counter-UAS</h3>
+        <p class="capability-desc">Operationally current understanding of small Unmanned Aerial System threat &mdash; Group 1 and 2 systems, First-Person View and modified payloads, GPS-denied autonomy. Advisory on detection architectures, layered Counter-UAS effect, and the regulatory limits of mitigation under United Kingdom law.</p>
+      </div>
+      <div class="capability-card reveal reveal-delay-1">
+        <div class="capability-num">02</div>
+        <svg class="capability-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M6 28L14 20L22 28L30 20L38 28" stroke-dasharray="2 2"/>
+          <path d="M38 28L34 24M38 28L34 32"/>
+          <circle cx="6" cy="28" r="1.6" fill="currentColor"/>
+        </svg>
+        <h3 class="capability-name">Discreet Manoeuvre</h3>
+        <p class="capability-desc">Replication of the patient, low-signature approach a capable adversary will use against a critical site. Hostile reconnaissance, covert access pathways, and standoff observation &mdash; the empirical inputs to a credible National Protective Security Authority Operational Requirements case.</p>
+      </div>
+      <div class="capability-card reveal reveal-delay-2">
+        <div class="capability-num">03</div>
+        <svg class="capability-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M6 22C10 14 16 10 22 10C28 10 34 14 38 22C34 30 28 34 22 34C16 34 10 30 6 22Z"/>
+          <circle cx="22" cy="22" r="4"/>
+          <path d="M9 9L35 35"/>
+        </svg>
+        <h3 class="capability-name">Anti-Surveillance &amp; Counter-Reconnaissance</h3>
+        <p class="capability-desc">Surveillance detection, anti-surveillance, and counter-reconnaissance protocols developed for hostile state operating environments. Applied to executive principals, sensitive site visits, and the protection of board-level decision making.</p>
+      </div>
+      <div class="capability-card reveal reveal-delay-3">
+        <div class="capability-num">04</div>
+        <svg class="capability-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M14 22C14 17.5 17.5 14 22 14H26"/>
+          <path d="M30 22C30 26.5 26.5 30 22 30H18"/>
+          <path d="M14 10L20 18M30 34L24 26"/>
+        </svg>
+        <h3 class="capability-name">Sabotage Threat Assessment</h3>
+        <p class="capability-desc">Realistic appraisal of state-directed and proxy sabotage against critical assets &mdash; the threat picture now codified in the United Kingdom National Security Risk Assessment. Vulnerability identification, target-set characterisation, and protective measures aligned to National Protective Security Authority guidance.</p>
+      </div>
+    </div>
+    <div class="capability-footer reveal">
+      <div class="capability-foot-line"></div>
+      <p class="capability-foot-text">Cadre engagements operate under written scope and authorisation, subject to non-disclosure as standard. Personnel selection, vetting, and clearance status disclosed to client at point of engagement. Hampshire &mdash; operating United Kingdom wide.</p>
+    </div>
+  </div>
+</section>
+
 <!-- MARTYN'S LAW -->
 <section class="martyns" id="martyns">
   <div class="martyns-inner">
@@ -1883,6 +2096,7 @@ footer {
           <option>Counter-Terrorism &amp; Martyn's Law</option>
           <option>Protective Security Advisory</option>
           <option>Protective Security Risk Management / Operational Requirements</option>
+          <option>CNI / State &amp; Hybrid Threat Engagement</option>
           <option>Russian-Language Hostile State Advisory</option>
           <option>Multiple Services / Not Sure</option>
         </select>
@@ -1935,6 +2149,7 @@ footer {
           <ul>
             <li><a href="#accreditations">Accreditation</a></li>
             <li><a href="#about">About Palisade</a></li>
+            <li><a href="#capability">Specialist Capability</a></li>
             <li><a href="#process">Methodology</a></li>
             <li><a href="#contact">Enquire</a></li>
           </ul>
