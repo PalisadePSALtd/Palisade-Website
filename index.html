@@ -7,6 +7,19 @@
 <meta name="copyright" content="© 2026 Palisade Protective Security Advisory Ltd. All rights reserved.">
 <meta name="author" content="Palisade Protective Security Advisory Ltd">
 <meta name="description" content="Palisade Protective Security Advisory Ltd — independent, threat-led protective security for Critical National Infrastructure, major venues and events, corporations, and private principals. A single vendor-independent engagement model: Test (physical penetration testing and red teaming), Assess (full cooperative review), and Advise (consultancy to deliver proportionate upgrades). Every recommendation weighed on cost against benefit and on a realistic assessment of adversary capability and intent, shaped by professional judgement alone — Palisade holds no supplier relationships and sells no equipment. Chartered Security Professional (CSyP), ASIS Certified Protection Professional (CPP) and Physical Security Professional (PSP), Member of the Security Institute (MSyI), Chartered Manager (CMgr MCMI); NPSA-endorsed and Developed Vetting (DV) cleared. Delivered within the National Protective Security Authority (NPSA) frameworks. Martyn's Law compliance and advisory. Hampshire — United Kingdom wide.">
+<meta name="theme-color" content="#0b0c0e">
+<link rel="icon" type="image/png" sizes="180x180" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Palisade Protective Security Advisory Ltd">
+<meta property="og:title" content="Palisade — Independent, Threat-Led Protective Security">
+<meta property="og:description" content="Vendor-independent protective security for Critical National Infrastructure, major venues, corporations and private principals. Test · Assess · Advise.">
+<meta property="og:image" content="https://www.palisadeprotectivesecurity.co.uk/og-image.png">
+<meta property="og:url" content="https://www.palisadeprotectivesecurity.co.uk/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Palisade — Independent, Threat-Led Protective Security">
+<meta name="twitter:description" content="Vendor-independent protective security. Test · Assess · Advise.">
+<meta name="twitter:image" content="https://www.palisadeprotectivesecurity.co.uk/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
@@ -15,20 +28,21 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 :root {
-  --navy:     #0a1628;
-  --navy2:    #0f1f3d;
-  --navy3:    #162040;
-  --gold:     #b8934a;
-  --gold2:    #d4aa6a;
-  --gold3:    #e8c88a;
-  --gold-dim: rgba(184,147,74,0.12);
-  --steel:    #2a5298;
-  --steel2:   #3a6bc0;
-  --cream:    #f5f0e8;
-  --cream2:   #ede5d4;
-  --text:     #1a1a2e;
-  --text2:    #3a3a5c;
-  --text3:    #6a6a8a;
+  /* Onyx & Gold — graphite ground, single champagne-gold accent (from the logo mark) */
+  --navy:     #0b0c0e;
+  --navy2:    #15171a;
+  --navy3:    #202226;
+  --gold:     #c0994f;
+  --gold2:    #d8b478;
+  --gold3:    #e7ce9a;
+  --gold-dim: rgba(216,180,120,0.12);
+  --steel:    #9c7526;
+  --steel2:   #b8934a;
+  --cream:    #f3f2ef;
+  --cream2:   #e7e5df;
+  --text:     #16171a;
+  --text2:    #3a3b3f;
+  --text3:    #75767a;
   --white:    #ffffff;
   --serif:    'Cormorant Garamond', serif;
   --display:  'Barlow Condensed', sans-serif;
@@ -75,7 +89,7 @@ nav.scrolled { height: 76px; }
 
 nav.scrolled {
   background: rgba(10,22,40,0.97);
-  border-bottom: 1px solid rgba(184,147,74,0.15);
+  border-bottom: 1px solid rgba(216,180,120,0.15);
 }
 
 .nav-logo {
@@ -179,7 +193,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
 .nav-toggle {
   display: none;
   background: none;
-  border: 1px solid rgba(184,147,74,0.4);
+  border: 1px solid rgba(216,180,120,0.4);
   color: var(--gold2);
   width: 38px;
   height: 38px;
@@ -213,7 +227,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   inset: 0;
   background:
     radial-gradient(ellipse 80% 60% at 60% 40%, rgba(42,82,152,0.15) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(184,147,74,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(216,180,120,0.08) 0%, transparent 60%),
     linear-gradient(160deg, var(--navy) 0%, var(--navy2) 50%, var(--navy3) 100%);
 }
 
@@ -238,7 +252,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   transform: translateX(-50%);
   width: clamp(420px, 60vw, 760px);
   height: clamp(420px, 60vw, 760px);
-  background: radial-gradient(circle, rgba(184,147,74,0.10) 0%, rgba(184,147,74,0.04) 35%, transparent 65%);
+  background: radial-gradient(circle, rgba(216,180,120,0.10) 0%, rgba(216,180,120,0.04) 35%, transparent 65%);
   z-index: -1;
   pointer-events: none;
 }
@@ -247,7 +261,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   width: clamp(320px, 44vw, 560px);
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 12px 48px rgba(184,147,74,0.22));
+  filter: drop-shadow(0 12px 48px rgba(216,180,120,0.22));
   opacity: 0;
   animation: fadeUp 0.9s ease 0.1s forwards;
 }
@@ -350,7 +364,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   background: var(--gold2);
   border-color: var(--gold2);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(184,147,74,0.3);
+  box-shadow: 0 8px 24px rgba(216,180,120,0.3);
 }
 
 .btn-primary svg {
@@ -457,8 +471,8 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   padding: 88px 5vw 96px;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(184,147,74,0.12);
-  border-bottom: 1px solid rgba(184,147,74,0.12);
+  border-top: 1px solid rgba(216,180,120,0.12);
+  border-bottom: 1px solid rgba(216,180,120,0.12);
 }
 
 .accreditations-inner {
@@ -496,8 +510,8 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1px;
-  background: rgba(184,147,74,0.15);
-  border: 1px solid rgba(184,147,74,0.15);
+  background: rgba(216,180,120,0.15);
+  border: 1px solid rgba(216,180,120,0.15);
 }
 
 .accred-cell {
@@ -563,7 +577,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   top: 0; right: 0;
   width: 40%;
   height: 100%;
-  background: linear-gradient(270deg, rgba(184,147,74,0.04) 0%, transparent 100%);
+  background: linear-gradient(270deg, rgba(216,180,120,0.04) 0%, transparent 100%);
   pointer-events: none;
 }
 
@@ -643,7 +657,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   font-family: var(--serif);
   font-size: 3.5rem;
   font-weight: 300;
-  color: rgba(184,147,74,0.15);
+  color: rgba(216,180,120,0.15);
   line-height: 1;
   margin-bottom: 24px;
   font-style: italic;
@@ -752,8 +766,8 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
 
 .about-cred {
   padding: 20px;
-  border: 1px solid rgba(184,147,74,0.2);
-  background: rgba(184,147,74,0.04);
+  border: 1px solid rgba(216,180,120,0.2);
+  background: rgba(216,180,120,0.04);
 }
 
 .about-cred-title {
@@ -825,7 +839,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 12% 22%, rgba(184,147,74,0.05) 0%, transparent 45%),
+    radial-gradient(circle at 12% 22%, rgba(216,180,120,0.05) 0%, transparent 45%),
     radial-gradient(circle at 88% 78%, rgba(42,82,152,0.06) 0%, transparent 45%);
   pointer-events: none;
 }
@@ -878,7 +892,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   position: relative;
   overflow: hidden;
   transition: transform 0.3s, background 0.3s;
-  border-top: 1px solid rgba(184,147,74,0.15);
+  border-top: 1px solid rgba(216,180,120,0.15);
 }
 
 .capability-card::before {
@@ -898,7 +912,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   font-family: var(--serif);
   font-size: 2.6rem;
   font-weight: 300;
-  color: rgba(184,147,74,0.25);
+  color: rgba(216,180,120,0.25);
   line-height: 1;
   margin-bottom: 20px;
   font-style: italic;
@@ -934,7 +948,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   align-items: flex-start;
   gap: 20px;
   padding-top: 32px;
-  border-top: 1px solid rgba(184,147,74,0.12);
+  border-top: 1px solid rgba(216,180,120,0.12);
 }
 
 .capability-foot-line {
@@ -1044,7 +1058,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   top: 0;
   bottom: 0;
   width: 1px;
-  background: rgba(184,147,74,0.2);
+  background: rgba(216,180,120,0.2);
 }
 
 .timeline-date {
@@ -1138,7 +1152,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   left: 10%;
   right: 10%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(184,147,74,0.3), rgba(184,147,74,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(216,180,120,0.3), rgba(216,180,120,0.3), transparent);
 }
 
 .process-step {
@@ -1150,7 +1164,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
 .process-step-num {
   width: 72px;
   height: 72px;
-  border: 1px solid rgba(184,147,74,0.3);
+  border: 1px solid rgba(216,180,120,0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1192,7 +1206,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
 
 /* ── CTA BAND ── */
 .cta-band {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 50%, #c49a50 100%);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 50%, #b8894a 100%);
   padding: 80px 5vw;
   position: relative;
   overflow: hidden;
@@ -1316,7 +1330,7 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
 .contact-item-icon {
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(184,147,74,0.3);
+  border: 1px solid rgba(216,180,120,0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1411,13 +1425,13 @@ nav.scrolled .nav-shield { width: 46px; height: 46px; }
   background: var(--gold2);
   border-color: var(--gold2);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(184,147,74,0.3);
+  box-shadow: 0 6px 20px rgba(216,180,120,0.3);
 }
 
 /* ── FOOTER ── */
 footer {
   background: var(--navy);
-  border-top: 1px solid rgba(184,147,74,0.15);
+  border-top: 1px solid rgba(216,180,120,0.15);
   padding: 48px 5vw 32px;
 }
 
@@ -1524,7 +1538,7 @@ footer {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 15% 15%, rgba(184,147,74,0.06) 0%, transparent 45%),
+    radial-gradient(circle at 15% 15%, rgba(216,180,120,0.06) 0%, transparent 45%),
     radial-gradient(circle at 85% 85%, rgba(42,82,152,0.07) 0%, transparent 45%);
   pointer-events: none;
 }
@@ -1552,8 +1566,8 @@ footer {
   gap: 28px;
   padding: 34px 40px;
   margin-bottom: 44px;
-  background: linear-gradient(120deg, rgba(184,147,74,0.10) 0%, rgba(184,147,74,0.02) 60%, transparent 100%);
-  border: 1px solid rgba(184,147,74,0.28);
+  background: linear-gradient(120deg, rgba(216,180,120,0.10) 0%, rgba(216,180,120,0.02) 60%, transparent 100%);
+  border: 1px solid rgba(216,180,120,0.28);
   border-left: 3px solid var(--gold);
 }
 .predicate-badge {
@@ -1611,7 +1625,7 @@ footer {
   font-size: 2.4rem;
   font-style: italic;
   font-weight: 300;
-  color: rgba(184,147,74,0.35);
+  color: rgba(216,180,120,0.35);
   line-height: 1;
 }
 .model-stage-tag {
@@ -1621,7 +1635,7 @@ footer {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold2);
-  border: 1px solid rgba(184,147,74,0.35);
+  border: 1px solid rgba(216,180,120,0.35);
   padding: 5px 10px;
 }
 .model-stage-title {
@@ -1677,8 +1691,8 @@ footer {
   gap: 30px;
   margin-top: 44px;
   padding: 38px 44px;
-  background: linear-gradient(120deg, rgba(184,147,74,0.14) 0%, rgba(184,147,74,0.04) 100%);
-  border: 1px solid rgba(184,147,74,0.3);
+  background: linear-gradient(120deg, rgba(216,180,120,0.14) 0%, rgba(216,180,120,0.04) 100%);
+  border: 1px solid rgba(216,180,120,0.3);
 }
 .independence-mark {
   flex-shrink: 0;
@@ -1719,7 +1733,7 @@ footer {
   padding: 110px 5vw;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(184,147,74,0.1);
+  border-top: 1px solid rgba(216,180,120,0.1);
 }
 .clients-inner { max-width: 1200px; margin: 0 auto; }
 .clients-header { text-align: center; max-width: 800px; margin: 0 auto 56px; }
@@ -1755,7 +1769,7 @@ footer {
   top: 0; left: 0;
   width: 100%;
   height: 2px;
-  background: rgba(184,147,74,0.2);
+  background: rgba(216,180,120,0.2);
   transition: background 0.3s;
 }
 .client-card--primary::before { background: var(--gold); }
@@ -1811,8 +1825,8 @@ footer {
 }
 
 @keyframes dotPulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(184,147,74,0.4); }
-  50%       { opacity: 0.6; box-shadow: 0 0 0 6px rgba(184,147,74,0); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(216,180,120,0.4); }
+  50%       { opacity: 0.6; box-shadow: 0 0 0 6px rgba(216,180,120,0); }
 }
 
 /* Scroll reveal */
@@ -1851,7 +1865,7 @@ footer {
     background: rgba(10,22,40,0.98);
     padding: 24px 5vw;
     gap: 20px;
-    border-top: 1px solid rgba(184,147,74,0.15);
+    border-top: 1px solid rgba(216,180,120,0.15);
   }
   .nav-links.open a { font-size: 1rem; }
   .nav-shield { width: 46px; height: 46px; }
