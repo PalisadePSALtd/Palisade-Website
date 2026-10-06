@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://palisadeprotectivesecurity.co.uk/sitemap.xml
