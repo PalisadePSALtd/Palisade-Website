@@ -61,3 +61,27 @@ html{scroll-padding-top:calc(var(--header-height,100px) + 20px)}
 @media(max-width:780px){.feature figure img{height:auto;aspect-ratio:3/2}}
 
 @media(min-width:781px){.layer-feature>.layers{align-self:center}}
+
+@media(max-width:780px){
+  .service-list>a>span[aria-hidden="true"],
+  .practice-gateway nav a>span[aria-hidden="true"],
+  .next-links a>span[aria-hidden="true"]{
+    display:inline-flex;position:relative;align-items:center;justify-content:center;
+    flex:none;width:24px;height:24px;margin:0;font-size:0;line-height:0;
+    background:var(--onyx);border:1px solid var(--gold);border-radius:2px;
+    color:var(--gold);align-self:center;
+  }
+  .service-list>a{grid-template-columns:32px 1fr 24px}
+  .service-list>a>span[aria-hidden="true"]::before,
+  .practice-gateway nav a>span[aria-hidden="true"]::before,
+  .next-links a>span[aria-hidden="true"]::before{
+    content:"";position:absolute;width:10px;height:2px;background:var(--gold);
+    transform:rotate(-45deg);
+  }
+  .service-list>a>span[aria-hidden="true"]::after,
+  .practice-gateway nav a>span[aria-hidden="true"]::after,
+  .next-links a>span[aria-hidden="true"]::after{
+    content:"";position:absolute;width:7px;height:7px;top:6px;right:6px;
+    border-top:2px solid var(--gold);border-right:2px solid var(--gold);
+  }
+}
