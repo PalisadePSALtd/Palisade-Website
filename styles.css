@@ -85,3 +85,9 @@ html{scroll-padding-top:calc(var(--header-height,100px) + 20px)}
     border-top:2px solid var(--gold);border-right:2px solid var(--gold);
   }
 }
+
+.mobile-nav>summary{list-style:none;display:inline-flex;align-items:center;gap:10px}
+.mobile-nav>summary::-webkit-details-marker{display:none}
+.mobile-nav>summary::marker{content:"";font-size:0}
+.mobile-nav>summary::after{content:"";width:9px;height:9px;flex:none;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg);margin-top:-4px;transition:transform .15s ease}
+.mobile-nav[open]>summary::after{transform:rotate(-135deg);margin-top:3px}
