@@ -91,3 +91,25 @@ html{scroll-padding-top:calc(var(--header-height,100px) + 20px)}
 .mobile-nav>summary::marker{content:"";font-size:0}
 .mobile-nav>summary::after{content:"";width:9px;height:9px;flex:none;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg);margin-top:-4px;transition:transform .15s ease}
 .mobile-nav[open]>summary::after{transform:rotate(-135deg);margin-top:3px}
+
+/* V23: asset-centred protective principles */
+.stamp-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-top:40px}
+.stamp-principles article{border-top:1px solid var(--gold);padding-top:24px}
+.stamp-application{max-width:900px;margin-top:48px}
+@media(max-width:780px){.stamp-principles{grid-template-columns:1fr;gap:24px}.stamp-application{margin-top:32px}}
+
+.stamp-section{margin-top:64px;padding-top:56px;border-top:1px solid var(--gold)}
+
+/* V23: sourced threat context beside the sectors introduction */
+.sector-intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px;align-items:start}
+.sector-intro-grid>*{min-width:0}
+.sector-threat{border-left:2px solid var(--bronze);padding-left:30px}
+.sector-threat blockquote{margin:0;font:1.125rem/1.65 var(--serif)}
+.sector-threat blockquote p{color:var(--ink)}
+.sector-threat figcaption{font-size:.8125rem;line-height:1.7;padding-top:4px}
+.sector-threat figcaption strong{font-weight:400;color:var(--ink)}
+.sector-threat figcaption a{display:inline-block;padding-block:6px}
+.sector-threat .sector-threat-context{font-size:.875rem;line-height:1.7;border-top:1px solid var(--light-line);margin:22px 0 0;padding-top:20px}
+@media(max-width:1100px){.sector-intro-grid{gap:40px}}
+@media(max-width:900px){.sector-intro-grid{grid-template-columns:1fr;gap:40px}.sector-threat{padding-left:22px}}
+@media print{.sector-intro-grid{display:block}.sector-threat{margin-top:30px;break-inside:avoid}}
